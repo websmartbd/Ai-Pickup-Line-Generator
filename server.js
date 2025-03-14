@@ -2,8 +2,8 @@ const express = require('express');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 const app = express();
-const port = 3000;
-const genAI = new GoogleGenerativeAI('YOUR_API_KEY');
+const port = 80;
+const genAI = new GoogleGenerativeAI('AIzaSyAMieSYPrxBOTKYxGjOZBtpxZEdcZLjRvI');
 
 app.use(express.json());
 app.use(express.static('public'));
