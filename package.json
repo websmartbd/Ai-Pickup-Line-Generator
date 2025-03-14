@@ -1,0 +1,14 @@
+{
+  "name": "pickup-line-generator",
+  "version": "1.0.0",
+  "description": "Situation-based pickup line generator using Google AI Studio",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.3.1",
+    "@google/generative-ai": "^0.4.0"
+  }
+}

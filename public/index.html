@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Pickup Line Generator | Create Unique Situation-Based Pickup Lines</title>
+    <meta name="description" content="Create unique, AI-powered pickup lines tailored to any situation. Our smart generator crafts clever, contextual lines in multiple languages to help break the ice.">
+    <meta name="keywords" content="pickup line generator, AI pickup lines, situation-based pickup lines, dating help, conversation starters">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AI Pickup Line Generator | Create Unique Situation-Based Lines">
+    <meta property="og:description" content="Generate clever, contextual pickup lines powered by AI. Perfect for any situation, available in multiple languages.">
+    <meta property="og:image" content="/img/faviocn.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Pickup Line Generator | Create Unique Lines">
+    <meta name="twitter:description" content="Generate clever, contextual pickup lines powered by AI. Perfect for any situation, available in multiple languages.">
+    <meta name="twitter:image" content="/img/faviocn.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/img/faviocn.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://pickup-line-generator.com/">
+    
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "AI Pickup Line Generator",
+      "description": "Create unique, AI-powered pickup lines tailored to any situation",
+      "applicationCategory": "Entertainment",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Add dark mode configuration for Tailwind
+        tailwind.config = {
+            darkMode: 'class'
+        }
+
+        // Check for saved theme preference or default to dark theme
+        if (localStorage.theme === 'light') {
+            document.documentElement.classList.remove('dark')
+        } else {
+            document.documentElement.classList.add('dark')
+        }
+    </script>
+</head>
+<body class="min-h-screen p-4 sm:p-8 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-blue-900 dark:text-white transition-colors duration-300">
+    <header class="max-w-2xl mx-auto mb-8 bg-white/90 dark:bg-gray-800/90 rounded-xl shadow-lg p-4 sm:p-6 border border-white/20 backdrop-blur-sm transition-colors duration-300">
+        <div class="flex justify-between items-center">
+            <h1 class="text-[1.3rem] sm:text-3xl font-bold text-gray-800 dark:text-white">Ai Pickup Line Generator</h1>
+            <button id="themeToggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-300">
+                <svg id="sunIcon" class="w-6 h-6 hidden dark:block" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+                </svg>
+                <svg id="moonIcon" class="w-6 h-6 block dark:hidden" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="max-w-2xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-xl p-4 sm:p-8 border border-white/20 backdrop-blur-sm transition-colors duration-300">
+        
+        <form id="pickupForm" class="space-y-4">
+            <div>
+                <label class="block text-gray-700 dark:text-gray-300 text-sm font-medium mb-2">Describe the situation:</label>
+                <textarea 
+                    id="situationInput"
+                    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white transition-colors duration-300"
+                    rows="4"
+                    placeholder="e.g. 'We're both looking at the same book in the library...'"></textarea>
+                </textarea>
+            </div>
+
+            <div>
+                <label class="block text-gray-700 dark:text-gray-300 text-sm font-medium mb-2">Language:</label>
+                <select 
+                    id="languageSelect"
+                    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white transition-colors duration-300"
+                >
+                    <option value="english">English</option>
+                    <option value="bangla">Bangla</option>
+                </select>
+            </div>
+
+            <button 
+                type="submit"
+                class="w-full bg-gradient-to-r from-blue-600 via-purple-500 to-blue-600 bg-[length:200%_auto] text-white py-3 px-6 rounded-xl hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 dark:shadow-blue-500/20 animate-pulse-gradient"
+                >Generate Pickup Line ✨</button>
+        </form>
+
+        <div id="resultContainer" class="mt-6 hidden animate-fade-in">
+            <div class="bg-white/90 dark:bg-gray-700/90 p-4 sm:p-6 rounded-xl border border-gray-100 dark:border-gray-600 shadow-lg backdrop-blur-sm transition-colors duration-300">
+                <div class="flex justify-between items-start">
+                    <h3 class="text-base sm:text-lg font-medium text-gray-800 dark:text-white mb-2">Your Situation-Specific Line:</h3>
+                    <button class="copy-btn p-1 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-full transition-colors duration-300">
+                        <img src="img/copy.png" class="copy-icon w-6 h-6 text-gray-600 dark:invert dark:brightness-100 transition-all duration-300" alt="Copy icon">
+                        <img src="img/check.png" class="check-icon hidden w-6 h-6 text-green-600 dark:invert dark:brightness-100 transition-all duration-300" alt="Check icon">
+                    </button>
+                </div>
+                <p id="pickupLine" class="text-base sm:text-lg font-medium animated-gradient-text"></p>
+            </div>
+        </div>
+
+        <div id="loading" class="mt-4 hidden">
+            <div class="flex items-center justify-center space-x-2">
+                <div class="w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 animate-bounce"></div>
+                <div class="w-4 h-4 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 animate-bounce delay-100"></div>
+                <div class="w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 animate-bounce delay-200"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        });
+
+        document.getElementById('pickupForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const situation = document.getElementById('situationInput').value;
+            
+            document.getElementById('loading').classList.remove('hidden');
+            document.getElementById('resultContainer').classList.add('hidden');
+
+            try {
+                const response = await fetch('/generate-pickupline', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ situation, language: document.getElementById('languageSelect').value })
+                });
+
+                const data = await response.json();
+                
+                if (data.error) throw new Error(data.error);
+                
+                document.getElementById('pickupLine').textContent = data.pickupline.trim();
+                
+                document.getElementById('resultContainer').classList.remove('hidden');
+            } catch (error) {
+                alert('Error: ' + error.message);
+            } finally {
+                document.getElementById('loading').classList.add('hidden');
+                // Reset copy button state
+                setTimeout(() => {
+                  document.querySelector('.copy-icon').src = 'img/copy.png';
+                }, 2000);
+                
+                // Add copy functionality
+                document.querySelector('.copy-btn').addEventListener('click', (e) => {
+                  e.preventDefault();
+                  const text = document.getElementById('pickupLine').textContent;
+                  navigator.clipboard.writeText(text);
+                  document.querySelector('.copy-icon').src = 'img/check.png';
+                });
+            }
+        });
+    </script>
+    <footer class="mt-8 sm:mt-12 text-center text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+        <div class="max-w-2xl mx-auto p-4 bg-gradient-to-r from-white/50 to-purple-50/50 dark:from-gray-800/50 dark:to-purple-900/50 rounded-xl backdrop-blur-sm transition-colors duration-300">
+            <p class="text-sm font-medium mb-2"> Made with ❤️ By <a href="https://bmshifat.zya.me" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors"> BM Shifat</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+<style>
+    p#pickupLine {
+    font-weight: bold;
+}
+    @keyframes gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    .animated-gradient-text {
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6);
+        background-size: 200% auto;
+        animation: gradient 3s linear infinite;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        display: inline-block;
+    }
+    @keyframes pulse-gradient {
+        0% { background-position: 0% 50%; opacity: 1; }
+        50% { background-position: 100% 50%; opacity: 0.9; }
+        100% { background-position: 0% 50%; opacity: 1; }
+    }
+    .animate-pulse-gradient {
+        animation: pulse-gradient 3s ease infinite;
+    }
+</style>
